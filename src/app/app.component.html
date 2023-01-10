@@ -2,8 +2,13 @@
   <h1>{{ title }}</h1>
   <div class="faq__list">
     <div class="faq__item" *ngFor="let faq of faqs; index as i">
-      <h2 class="question">{{ faq.question }}</h2>
-      <p class="answer">{{ faq.answer }}</p>
+      <div class="question" (click)="showAnswer(i)">
+        <h2>{{ faq.question }}</h2>
+        <img src="{{ icon }}" alt="Ver más" class="faq__icon__more" *ngIf="!faq.show_answer">
+        <img src="{{ icon }}" alt="Ver más" class="faq__icon__less" *ngIf="faq.show_answer">
+      </div>
+
+      <p class="answer" *ngIf="faq.show_answer">{{ faq.answer }}</p>
     </div>
   </div>
 </section>

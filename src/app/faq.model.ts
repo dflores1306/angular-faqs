@@ -1,4 +1,5 @@
 export interface Faq{
   question: string,
-  answer: string
+  answer: string,
+  show_answer: boolean
 }
